@@ -15,8 +15,8 @@ $(document).ready(function() {
     }
     $(btntxt).text("Next");
     $('.btn').css('opacity', '0.5');
-    $('#level').text(clrs.length);
     if (ready && game && end) {
+      $('#level').text(clrs.length);
       ready = 0;
       game = 0;
       play(clrs);
