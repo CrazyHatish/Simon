@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  end = 1;
   var level = 1;
   var game = 1;
   var ready = 1;
@@ -6,7 +7,7 @@ $(document).ready(function() {
   $(button).click(function() {
     $('span').text("Next");
     $('.btn').css('opacity', '0.5');
-    if (ready && game) {
+    if (ready && game && end) {
       ready = 0;
       game = 0;
       play(clrs);
@@ -18,13 +19,12 @@ $(document).ready(function() {
     }
   });
   $('.box').click(function() {
-    if (ready) {
+    if (ready && end) {
       $(this).fadeTo(50, 1, function() {
         $(this).fadeTo(50, 0.5);
       });
       click($(this).attr('n'), cl_copy);
       game = check(cl_copy);
-      $('h2').text(cl_copy.length);
     }
   });
 });
@@ -64,6 +64,7 @@ function check(colors) {
     $('.btn').css('opacity', '1');
     return 1;
   } else {
+    end = 0;
     return 0;
   }
 }
