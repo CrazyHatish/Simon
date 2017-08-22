@@ -63,5 +63,7 @@ function check(colors) {
   if (colors.length == 0) {
     $('.btn').css('opacity', '1');
     return 1;
+  } else {
+    return 0;
   }
 }
