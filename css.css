@@ -7,28 +7,37 @@
 
 h1 {
   position: relative;
-  top: -1000px;
-  font-size: 200px;
+  top: -1050px;
+  font-size: 150px;
   text-align: center;
-  font-family: sans-serif;
+  font-family: Bungee, cursive;
+}
+
+#level {
+  font-family: Bungee, cursive;
+  font-size: 300px;
+  position: fixed;
+  left: 100px;
+  line-height: 200%;
 }
 
 #button {
-  width: 150px;
-  height: 75px;
+  width: 300px;
+  height: 125px;
   margin: auto;
   position: relative;
-  top: 50px;
+  top: 25px;
   text-align: center;
-  font-weight: bold;
-  font-family: sans-serif;
-  font-size: 50px;
+  font-family: Bungee, cursive;
+  box-sizing: border-box;
+  font-size: 75px;
   border-style: solid;
   border-width: thick;
   border-radius: 10%;
 }
 
-span {
+.btn {
+  line-height: 150%;
   vertical-align: middle;
 }
 

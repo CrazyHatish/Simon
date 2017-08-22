@@ -5,8 +5,17 @@ $(document).ready(function() {
   var ready = 1;
   clrs = generate(level);
   $(button).click(function() {
-    $('span').text("Next");
+    if (end == 0) {
+      level = 1;
+      game = 1;
+      ready = 1;
+      end = 1;
+      clrs = generate(level);
+      $('h1').text('');
+    }
+    $(btntxt).text("Next");
     $('.btn').css('opacity', '0.5');
+    $('#level').text(clrs.length);
     if (ready && game && end) {
       ready = 0;
       game = 0;
@@ -15,13 +24,13 @@ $(document).ready(function() {
       clrs.push(Math.floor(Math.random() * 4));
       setTimeout(function() {
         ready = 1;
-      }, 750 * clrs.length);
+      }, 1000 * (clrs.length - 1));
     }
   });
   $('.box').click(function() {
     if (ready && end) {
-      $(this).fadeTo(50, 1, function() {
-        $(this).fadeTo(50, 0.5);
+      $(this).fadeTo(150, 1, function() {
+        $(this).fadeTo(150, 0.5);
       });
       click($(this).attr('n'), cl_copy);
       game = check(cl_copy);
@@ -34,6 +43,7 @@ function click(color, colors) {
     colors.shift();
   } else {
     $('h1').text('Lost');
+    $(btntxt).text('Reset');
     end = 0;
   }
 }
@@ -54,10 +64,9 @@ function play(colors) {
 
 
 function flash(color) {
-  setTimeout(function() {
-    $('.box').css('opacity', '0.5');
-  }, 500);
-  $('div[n = "' + color + '"]').css('opacity', '1');
+  $('div[n = "' + color + '"]').fadeTo(250, 1, function() {
+    $('div[n = "' + color + '"]').fadeTo(250, 0.5);
+  });
 }
 
 function check(colors) {
