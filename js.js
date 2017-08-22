@@ -34,6 +34,7 @@ function click(color, colors) {
     colors.shift();
   } else {
     $('h1').text('Lost');
+    end = 0;
   }
 }
 
@@ -63,8 +64,5 @@ function check(colors) {
   if (colors.length == 0) {
     $('.btn').css('opacity', '1');
     return 1;
-  } else {
-    end = 0;
-    return 0;
   }
 }
