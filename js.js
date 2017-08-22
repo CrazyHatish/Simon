@@ -6,7 +6,6 @@ $(document).ready(function() {
   clrs = generate(level);
   $(button).click(function() {
     if (end == 0) {
-      level = 1;
       game = 1;
       ready = 1;
       end = 1;
@@ -17,6 +16,7 @@ $(document).ready(function() {
     $('.btn').css('opacity', '0.5');
     if (ready && game && end) {
       $('#level').text(clrs.length);
+      updatescore(clrs.length);
       ready = 0;
       game = 0;
       play(clrs);
@@ -45,6 +45,13 @@ function click(color, colors) {
     $('h1').text('Lost');
     $(btntxt).text('Reset');
     end = 0;
+    updatescore(colors.length - 1);
+  }
+}
+
+function updatescore(level) {
+  if ($('#score').text() < level) {
+    $('#score').text(level - 1);
   }
 }
 
