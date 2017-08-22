@@ -38,25 +38,25 @@ span {
   margin: auto;
 }
 
-#red {
-  background-color: #FF2D00;
+#green {
+  background-color: #00FF25;
   border-top-left-radius: 100%;
+}
+
+#yellow {
+  background-color: #FFFB00;
+  border-bottom-left-radius: 100%;
 }
 
 #blue {
   background-color: #2000FF;
-  border-bottom-left-radius: 100%;
-}
-
-#green {
-  background-color: #00FF25;
   top: -150px;
   left: 150px;
   border-bottom-right-radius: 100%;
 }
 
-#yellow {
-  background-color: #FFFB00;
+#red {
+  background-color: #FF2D00;
   top: -450px;
   left: 150px;
   border-top-right-radius: 100%

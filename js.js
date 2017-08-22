@@ -1,7 +1,6 @@
 $(document).ready(function() {
   var level = 1;
   var game = 1;
-  var start = 0;
   var ready = 1;
   clrs = generate(level);
   $(button).click(function() {
