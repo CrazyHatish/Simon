@@ -1,42 +1,55 @@
 $(document).ready(function() {
-  $('h1').text(function() { return window.PointerEvent });
+
   var boxes = document.getElementById('boxes').getBoundingClientRect();
   var lvltxt = document.getElementById('level').getBoundingClientRect();
   if (boxes.left < lvltxt.right) {
     $('#level').css('position', 'relative').css('top', '50px').insertAfter('#button');
     $('#highscore').css('position', 'relative').css('top', '50px').insertAfter('#button');
   }
+
   end = 1;
   level = 1;
   game = 1;
   ready = 1;
   clrs = generate(level);
-  $(button).on({ 'pointerdown' : function() {
-    if (end == 0) {
-      game = 1;
-      ready = 1;
-      end = 1;
-      clrs = generate(level);
-      $('h1').text('');
-    }
-    $(btntxt).text("NEXT");
-    $('.btn').css('opacity', '0.5');
-    if (ready && game && end) {
-      $('#level').text(clrs.length);
-      updatescore(clrs.length);
-      ready = 0;
-      game = 0;
-      play(clrs);
-      cl_copy = clrs.slice();
-      clrs.push(Math.floor(Math.random() * 4));
-      setTimeout(function() {
-        ready = 1;
-      }, 1000 * (clrs.length - 1));
-    }
-  }});
-  $('.box').on({ 'pointerdown' : box});
+
+  if (is_touch_device()) {
+    $(button).on({
+      'touchstart': start
+    });
+    $('.box').on({
+      'touchstart': box
+    });
+  } else {
+    $(button).click(start);
+    $('.box').click(box);
+  }
 });
 
+function start() {
+  if (end == 0) {
+    game = 1;
+    ready = 1;
+    end = 1;
+    clrs = generate(level);
+    $('h1').text('');
+  }
+
+  $(btntxt).text("NEXT");
+  $('.btn').css('opacity', '0.5');
+  if (ready && game && end) {
+    $('#level').text(clrs.length);
+    updatescore(clrs.length);
+    ready = 0;
+    game = 0;
+    play(clrs);
+    cl_copy = clrs.slice();
+    clrs.push(Math.floor(Math.random() * 4));
+    setTimeout(function() {
+      ready = 1;
+    }, 1000 * (clrs.length - 1));
+  }
+}
 
 function box() {
   if (ready && end) {
@@ -92,3 +105,9 @@ function check(colors) {
     return 1;
   }
 }
+
+function is_touch_device() { // STOLEN FROM https://stackoverflow.com/questions/4755505/
+  return 'ontouchstart' in window // works on most browsers
+    ||
+    navigator.maxTouchPoints; // works on IE10/11 and Surface
+};
