@@ -24,10 +24,12 @@ h1 {
 
 #level {
   font-size: 300px;
+  width: 350px;
   position: absolute;
   float: left;
+  top: 20%;
   left: 5%;
-  line-height: 200%;
+  text-align: center;
 }
 
 #highscore {

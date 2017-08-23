@@ -1,4 +1,10 @@
 $(document).ready(function() {
+  var boxes = document.getElementById('boxes').getBoundingClientRect();
+  var lvltxt = document.getElementById('level').getBoundingClientRect();
+  if (boxes.left < lvltxt.right) {
+    $('#level').css('position', 'relative').insertAfter('#button');
+    $('#highscore').css('position', 'relative').css('top', '20px').insertAfter('#button');
+  }
   end = 1;
   var level = 1;
   var game = 1;
