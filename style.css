@@ -2,6 +2,9 @@
   font-family: 'Rubik', sans-serif;
   font-weight: bold;
   color: #353535;
+}
+
+html {
   touch-action: none;
 }
 

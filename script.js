@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  $('h1').text(function() { return window.PointerEvent });
   var boxes = document.getElementById('boxes').getBoundingClientRect();
   var lvltxt = document.getElementById('level').getBoundingClientRect();
   if (boxes.left < lvltxt.right) {
@@ -35,6 +36,7 @@ $(document).ready(function() {
   }});
   $('.box').on({ 'pointerdown' : box});
 });
+
 
 function box() {
   if (ready && end) {
