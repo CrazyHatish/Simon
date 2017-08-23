@@ -1,3 +1,8 @@
+* {
+  font-family: 'Rubik', sans-serif;
+  font-weight: bold;
+}
+
 .box {
   opacity: 0.5;
   width: 250px;
@@ -8,18 +13,16 @@
 
 h1 {
   position: absolute;
-  top: 100px;
+  top:5%;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
   line-height: 100%;
-  font-size: 150px;
+  font-size: 200px;
   text-align: center;
-  font-family: Bungee, cursive;
 }
 
 #level {
-  font-family: Bungee, cursive;
   font-size: 300px;
   position: absolute;
   float: left;
@@ -34,7 +37,6 @@ h1 {
   left: auto;
   top: 20%;
   font-size: 50px;
-  font-family: Bungee, cursive;
   line-height: 200%;
 }
 
@@ -50,9 +52,8 @@ h1 {
   position: relative;
   top: 25px;
   text-align: center;
-  font-family: Bungee, cursive;
   box-sizing: border-box;
-  font-size: 75px;
+  font-size: 85px;
   border-style: solid;
   border-width: thick;
   border-radius: 10%;
