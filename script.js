@@ -40,7 +40,7 @@ function start() {
     clrs.push(Math.floor(Math.random() * 4));
     setTimeout(function() {
       ready = 1;
-    }, 1000 * (clrs.length - 1));
+    }, 750 * (clrs.length - 1));
   }
 }
 
@@ -81,7 +81,7 @@ function generate(level) {
 
 function play(colors) {
   for (i = 0; i < colors.length; i++) {
-    setTimeout(flash, 1000 * i, colors[i]);
+    setTimeout(flash, 750 * i, colors[i]);
   }
 }
 
