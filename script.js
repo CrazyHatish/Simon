@@ -3,8 +3,10 @@ $(document).ready(function() {
   var boxes = document.getElementById('boxes').getBoundingClientRect();
   var lvltxt = document.getElementById('level').getBoundingClientRect();
   if (boxes.left < lvltxt.right) {
-    $('#level').css('position', 'relative').css('top', '50px').insertAfter('#button');
-    $('#highscore').css('position', 'relative').css('top', '50px').insertAfter('#button');
+    $('#boxes').css('width', '95%');
+    var bw = $('#boxes').width();
+    $('#boxes').css('height', bw + 'px');
+    $('.num').css('position', 'relative').css('top', '50px').insertAfter('#button');
   }
 
   end = 1;
@@ -13,17 +15,8 @@ $(document).ready(function() {
   ready = 1;
   clrs = generate(level);
 
-  if (is_touch_device()) {
-    $(button).on({
-      'touchstart': start
-    });
-    $('.box').on({
-      'touchstart': box
-    });
-  } else {
-    $(button).click(start);
-    $('.box').click(box);
-  }
+  $(button).mousedown(start);
+  $('.box').mousedown(box);
 });
 
 function start() {
@@ -105,9 +98,3 @@ function check(colors) {
     return 1;
   }
 }
-
-function is_touch_device() { // STOLEN FROM https://stackoverflow.com/questions/4755505/
-  return 'ontouchstart' in window // works on most browsers
-    ||
-    navigator.maxTouchPoints; // works on IE10/11 and Surface
-};
