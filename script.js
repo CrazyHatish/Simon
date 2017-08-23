@@ -32,7 +32,7 @@ function start() {
     ready = 1;
     end = 1;
     clrs = generate(level);
-    $('h1').text('');
+    $('#lost').text('');
   }
 
   $(btntxt).text("NEXT");
@@ -65,7 +65,7 @@ function click(color, colors) {
   if (color == colors[0]) {
     colors.shift();
   } else {
-    $('h1').text('Lost');
+    $('#lost').text('Lost');
     $(btntxt).text('RESET');
     end = 0;
     updatescore(colors.length - 1);
