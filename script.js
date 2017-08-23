@@ -2,15 +2,15 @@ $(document).ready(function() {
   var boxes = document.getElementById('boxes').getBoundingClientRect();
   var lvltxt = document.getElementById('level').getBoundingClientRect();
   if (boxes.left < lvltxt.right) {
-    $('#level').css('position', 'relative').insertAfter('#button');
-    $('#highscore').css('position', 'relative').css('top', '20px').insertAfter('#button');
+    $('#level').css('position', 'relative').css('top', '50px').insertAfter('#button');
+    $('#highscore').css('position', 'relative').css('top', '50px').insertAfter('#button');
   }
   end = 1;
-  var level = 1;
-  var game = 1;
-  var ready = 1;
+  level = 1;
+  game = 1;
+  ready = 1;
   clrs = generate(level);
-  $(button).click(function() {
+  $(button).on({ 'pointerdown' : function() {
     if (end == 0) {
       game = 1;
       ready = 1;
@@ -32,17 +32,19 @@ $(document).ready(function() {
         ready = 1;
       }, 1000 * (clrs.length - 1));
     }
-  });
-  $('.box').click(function() {
-    if (ready && end) {
-      $(this).fadeTo(150, 1, function() {
-        $(this).fadeTo(150, 0.5);
-      });
-      click($(this).attr('n'), cl_copy);
-      game = check(cl_copy);
-    }
-  });
+  }});
+  $('.box').on({ 'pointerdown' : box});
 });
+
+function box() {
+  if (ready && end) {
+    $(this).fadeTo(150, 1, function() {
+      $(this).fadeTo(150, 0.5);
+    });
+    click($(this).attr('n'), cl_copy);
+    game = check(cl_copy);
+  }
+}
 
 function click(color, colors) {
   if (color == colors[0]) {
