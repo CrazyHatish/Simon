@@ -18,7 +18,7 @@ $(document).ready(function() {
       clrs = generate(level);
       $('h1').text('');
     }
-    $(btntxt).text("Next");
+    $(btntxt).text("NEXT");
     $('.btn').css('opacity', '0.5');
     if (ready && game && end) {
       $('#level').text(clrs.length);
@@ -49,7 +49,7 @@ function click(color, colors) {
     colors.shift();
   } else {
     $('h1').text('Lost');
-    $(btntxt).text('Reset');
+    $(btntxt).text('RESET');
     end = 0;
     updatescore(colors.length - 1);
   }

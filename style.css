@@ -1,6 +1,11 @@
 * {
   font-family: 'Rubik', sans-serif;
   font-weight: bold;
+  color: #353535;
+}
+
+body {
+  background-image: url('bg.png');
 }
 
 .box {
@@ -35,7 +40,7 @@ h1 {
 #highscore {
   float: right;
   position: absolute;
-  right: 5%;
+  right: 7%;
   left: auto;
   top: 20%;
   font-size: 50px;
@@ -52,17 +57,18 @@ h1 {
   height: 125px;
   margin: auto;
   position: relative;
-  top: 25px;
+  top: 50px;
   text-align: center;
   box-sizing: border-box;
   font-size: 85px;
   border-style: solid;
   border-width: thick;
-  border-radius: 10%;
+  border-radius: 25px;
+  background-color: white;
 }
 
 .btn {
-  line-height: 150%;
+  line-height: 135%;
   vertical-align: middle;
 }
 
@@ -70,6 +76,8 @@ h1 {
   margin: auto;
   width: 500px;
   height: 500px;
+  background-color: white;
+  border-radius: 100%;
 }
 
 #green {
